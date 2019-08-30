@@ -4,6 +4,17 @@
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android" >
 
+    <Button
+        android:id="@+id/btn"
+        android:text="오늘의 달을 보여주세요~~"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:src="@drawable/fullmoon"
+        android:id="@+id/moon"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 
 

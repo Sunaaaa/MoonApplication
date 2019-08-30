@@ -20,28 +20,6 @@ public class MoonDTO {
         return imgSrc;
     }
 
-    public void setImgSrc(String lunAge) {
-        switch (lunAge){
-            case "0.1": case "1.1": case "0.4": case "1.4": case "2.4":
-                this.imgSrc = "newmoon.png";
-            case "3.4": case "4.4": case "5.4": case "6.4": case "7.4": case "8.4":
-                this.imgSrc = "ctoymoon.png";
-            case "9.4":
-                this.imgSrc = "youngmoon.png";
-            case "10.4": case "11.4": case "12.4": case "13.4": case "14.4":
-                this.imgSrc = "ytofmoon.png";
-            case "15.4":
-                this.imgSrc = "fullmoon.png";
-            case "16.4": case "17.4": case "18.4": case "19.4": case "20.4": case "21.4": case "22.4":
-                this.imgSrc = "ftoomoon.png";
-            case "23.4":
-                this.imgSrc = "oldmoon.png";
-            case "24.4": case "25.4": case "26.4": case "27.4": case "28.4":
-                this.imgSrc = "darkmoon.png";
-        }
-        this.imgSrc = imgSrc;
-    }
-
     public String getLunAge() {
         return lunAge;
     }
