@@ -4,9 +4,7 @@
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <ImageView
-        android:src="@drawable/moon"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+
+
 
 </LinearLayout>
