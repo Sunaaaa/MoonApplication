@@ -22,21 +22,6 @@ public class MainActivity extends AppCompatActivity {
         Log.i("Main_", "요기 들어왔어용");
 
         imageView = (ImageView)findViewById(R.id.moon);
-        btn = (Button)findViewById(R.id.btn);
-
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent();
-                ComponentName cname = new ComponentName("com.example.moonapplication", "com.example.moonapplication.MoonService");
-                i.setComponent(cname);
-                i.putExtra("year", "2019");
-                i.putExtra("month", "08");
-                i.putExtra("day", "06");
-                Log.i("Main_", "실행");
-                startService(i);
-            }
-        });
     }
 
     @Override

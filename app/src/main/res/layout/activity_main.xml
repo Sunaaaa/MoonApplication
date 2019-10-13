@@ -1,21 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_height="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android" >
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
 
-    <Button
-        android:id="@+id/btn"
-        android:text="오늘의 달을 보여주세요~~"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:orientation="vertical">
 
-    <ImageView
-        android:src="@drawable/fullmoon"
-        android:id="@+id/moon"
+        <ImageView
+            android:id="@+id/moon"
+            android:src="@drawable/logomoon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_margin="30dp"
+        android:padding="10dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
+        <TextView
+            android:textAlignment="viewEnd"
+            android:id="@+id/word"
+            android:fontFamily="@font/pillgee"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="유난히 어두운 밤,"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
 
+        <TextView
+            android:textAlignment="viewEnd"
+            android:id="@+id/word2"
+            android:fontFamily="@font/pillgee"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="사랑이 달빛을 타고 내려 몰래 내 맘에 흘려내려"
+            android:textColor="@android:color/white"
+            android:textSize="18dp" />
+
+        <TextView
+            android:textAlignment="viewEnd"
+            android:id="@+id/word_en"
+            android:fontFamily="@font/pillgee"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="On an especially dark night,"
+            android:textColor="#889180"
+            android:textSize="15dp" />
+
+        <TextView
+            android:textAlignment="viewEnd"
+            android:id="@+id/word2_en"
+            android:fontFamily="@font/pillgee"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Love rides the moonlight and secretly falls down,"
+            android:textColor="#889180"
+            android:textSize="15dp" />
+
+        <TextView
+            android:textAlignment="viewEnd"
+            android:id="@+id/word3_en"
+            android:fontFamily="@font/pillgee"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="It flows into my heart."
+            android:textColor="#889180"
+            android:textSize="15dp" />
+
+    </LinearLayout>
 
 </LinearLayout>
