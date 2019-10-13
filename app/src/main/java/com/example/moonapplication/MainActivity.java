@@ -21,6 +21,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.i("Main_", "요기 들어왔어용");
 
+        Intent i = new Intent();
+        ComponentName componentName = new ComponentName("com.example.moonapplication", "com.example.moonapplication.MoonService");
+        i.setComponent(componentName);
+        startService(i);
+
         imageView = (ImageView)findViewById(R.id.moon);
     }
 

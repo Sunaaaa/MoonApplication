@@ -2,6 +2,7 @@ package com.example.moonapplication;
 
 import android.app.Service;
 import android.content.Intent;
+import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
 
@@ -32,15 +33,12 @@ public class MoonService extends Service {
         public void run() {
             // 전달된 키워드를 이용해서 네트워크 처리함 (API 호출)
             String mykey = "rcYZ2cy9xIAfe1LzhTIOwGmFTTXCp%2BGv7NZ2GZ%2FMsTYOHbmHIJarmPJkKFB%2FELz3uwhH36N%2BvzmMs1o%2F%2Bnz8og%3D%3D";
-            String  url = "http://apis.data.go.kr/B090041/openapi/service/LunPhInfoService/getLunPhInfo?solYear=" + solYear + "&solMonth=" + solMonth + "&solDay=" + solDay + "&ServiceKey=" + mykey;
+            String  url = "http://apis.data.go.kr/B090041/openapi/service/LunPhInfoService/getLunPhInfo?solYear=" + solYear + "&solMonth=" + solMonth + "&solDay" + solDay + "&ServiceKey=" + mykey;
 
             try {
                 // 네트워크 연결
                 URL urlObj = new URL(url);
                 HttpURLConnection con = (HttpURLConnection)urlObj.openConnection();
-
-                // request 방식을 지정
-                con.setRequestMethod("GET");
 
                 // 정상적으로 설정을 하면, API 호출이 성공하고, 결과를 받아 올 수 있어요
                 // 연결 통로인 Stream 을 통해서 결과를 문자열로 얻어내요.
@@ -66,6 +64,7 @@ public class MoonService extends Service {
 
                 // Json을 Key-Value로 { document : [요기] }를 가져옴
                 Map<String, Object> map = mapper.readValue(sb.toString(), new TypeReference<Map<String, Object>>(){} );
+                Log.i("Moon_Service", map.get(1).toString());
 
                 // [요기]를 빼옴
                 Object obj = map.get("records");

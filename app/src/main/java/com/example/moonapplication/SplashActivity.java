@@ -20,7 +20,7 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         ImageView mImageView = (ImageView) findViewById(R.id.loading_img);
-        Glide.with(this).load(R.raw.moonsplash).into(mImageView);
+        Glide.with(this).load(R.raw.moon_splash).into(mImageView);
 
         Handler mHandler = new Handler();
         mHandler.postDelayed(new SplashHandler(), 5000);

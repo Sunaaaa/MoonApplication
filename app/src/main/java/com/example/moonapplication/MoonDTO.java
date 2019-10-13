@@ -6,7 +6,6 @@ public class MoonDTO {
     private String solMonth;
     private String solDay;
     private String solWeek;
-    private String imgSrc;
 
     public MoonDTO(String lunAge, String solYear, String solMonth, String solDay, String solWeek) {
         this.lunAge = lunAge;
@@ -14,10 +13,6 @@ public class MoonDTO {
         this.solMonth = solMonth;
         this.solDay = solDay;
         this.solWeek = solWeek;
-    }
-
-    public String getImgSrc() {
-        return imgSrc;
     }
 
     public String getLunAge() {
