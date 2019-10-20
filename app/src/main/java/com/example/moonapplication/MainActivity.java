@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
@@ -52,9 +53,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        String lunAge = intent.getStringExtra("result_data");
+//        MoonDTO moonDTO = intent.getParcelableExtra("moonResult");
+        String lunAge = intent.getStringExtra("moonResult");
+//        Toast.makeText(getApplicationContext(), moonDTO.getLunAge(), Toast.LENGTH_SHORT).show();
 
-        setImgSrc(lunAge);
+        Log.i("result : ", lunAge);
+
+//        setImgSrc(lunAge);
 
     }
 
