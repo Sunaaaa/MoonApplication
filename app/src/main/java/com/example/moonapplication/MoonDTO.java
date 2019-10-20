@@ -1,11 +1,17 @@
 package com.example.moonapplication;
 
-public class MoonDTO {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class MoonDTO implements Parcelable {
     private String lunAge;
     private String solYear;
     private String solMonth;
     private String solDay;
     private String solWeek;
+
+    public MoonDTO() {
+    }
 
     public MoonDTO(String lunAge, String solYear, String solMonth, String solDay, String solWeek) {
         this.lunAge = lunAge;
@@ -14,6 +20,26 @@ public class MoonDTO {
         this.solDay = solDay;
         this.solWeek = solWeek;
     }
+
+    protected MoonDTO(Parcel in) {
+        lunAge = in.readString();
+        solYear = in.readString();
+        solMonth = in.readString();
+        solDay = in.readString();
+        solWeek = in.readString();
+    }
+
+    public static final Creator<MoonDTO> CREATOR = new Creator<MoonDTO>() {
+        @Override
+        public MoonDTO createFromParcel(Parcel in) {
+            return new MoonDTO(in);
+        }
+
+        @Override
+        public MoonDTO[] newArray(int size) {
+            return new MoonDTO[size];
+        }
+    };
 
     public String getLunAge() {
         return lunAge;
@@ -53,5 +79,19 @@ public class MoonDTO {
 
     public void setSolWeek(String solWeek) {
         this.solWeek = solWeek;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(lunAge);
+        dest.writeString(solYear);
+        dest.writeString(solMonth);
+        dest.writeString(solDay);
+        dest.writeString(solWeek);
     }
 }
