@@ -33,24 +33,29 @@ public class MoonService extends Service {
         public void run() {
             // 전달된 키워드를 이용해서 네트워크 처리함 (API 호출)
             String mykey = "rcYZ2cy9xIAfe1LzhTIOwGmFTTXCp%2BGv7NZ2GZ%2FMsTYOHbmHIJarmPJkKFB%2FELz3uwhH36N%2BvzmMs1o%2F%2Bnz8og%3D%3D";
-            String  url = "http://apis.data.go.kr/B090041/openapi/service/LunPhInfoService/getLunPhInfo?solYear=" + solYear + "&solMonth=" + solMonth + "&solDay" + solDay + "&ServiceKey=" + mykey;
+            String  url = "http://apis.data.go.kr/B090041/openapi/service/LunPhInfoService/getLunPhInfo?solYear=" + solYear + "&solMonth=" + solMonth + "&solDay=" + solDay + "&ServiceKey=" + mykey;
+//            String  url = "http://apis.data.go.kr/B090041/openapi/service/LunPhInfoService/getLunPhInfo?solYear=" + solYear + "&solMonth=" + solMonth + "&solDay=" + solDay + "&ServiceKey=" + mykey;
 
             try {
                 // 네트워크 연결
                 URL urlObj = new URL(url);
                 HttpURLConnection con = (HttpURLConnection)urlObj.openConnection();
+                con.setRequestMethod("GET");
 
                 // 정상적으로 설정을 하면, API 호출이 성공하고, 결과를 받아 올 수 있어요
                 // 연결 통로인 Stream 을 통해서 결과를 문자열로 얻어내요.
                 // 기본적인 Stream을 BufferedReader 형태로 생성 -> ReadLine으로 결과를 가져올 수 있다.
                 BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
 
-                String line = null;
+                String line ;
                 StringBuffer sb = new StringBuffer();
 
+                Log.i("service", "서비스 수행");
                 while ((line = br.readLine())!= null){
                     sb.append(line);
                 }
+
+                Log.i("service", "데이터 받기");
                 Log.i("Moon_Service", line);
 
                 // 데이터를 다 읽어 들였으니 통로 (Stream)를 닫아요
@@ -59,10 +64,10 @@ public class MoonService extends Service {
                 Log.i("Moon_Service", sb.toString());
 
                 // Jackson Library를 이용해서 JSON 데이터를 처리
-                // { document : [요기] } => 요기 데이터가 필요함
+                // { json } => 요기 데이터가 필요함
                 ObjectMapper mapper = new ObjectMapper();
 
-                // Json을 Key-Value로 { document : [요기] }를 가져옴
+                // Json을 Key-Value로 { json }를 가져옴
                 Map<String, Object> map = mapper.readValue(sb.toString(), new TypeReference<Map<String, Object>>(){} );
                 Log.i("Moon_Service", map.get(1).toString());
 
@@ -107,6 +112,7 @@ public class MoonService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        Log.i("MoonService_START", "서비스 시작!");
     }
 
     @Override
@@ -115,11 +121,16 @@ public class MoonService extends Service {
         String month = intent.getExtras().getString("month");
         String day = intent.getExtras().getString("day");
 
+        Log.i("service", year);
+        Log.i("service", month);
+        Log.i("service", day);
+
         MoonRunnable moonRunnable = new MoonRunnable(year, month, day);
         Thread t = new Thread(moonRunnable);
         t.start();
 
         return super.onStartCommand(intent, flags, startId);
+
     }
 
     @Override

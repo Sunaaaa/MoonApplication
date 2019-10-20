@@ -35,11 +35,6 @@ public class SplashActivity extends AppCompatActivity {
             SplashActivity.this.finish();
 
 
-            // 서비스 실행
-//            ComponentName sComponentName = new ComponentName("com.example.myapplication", "com.example.myapplication.BodyShopService");
-//            i.setComponent(sComponentName);
-//            startService(i);
-
 //            ComponentName sComponentName = new ComponentName("com.example.myapplication", "com.example.myapplication.BodyShopService");
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
             SplashActivity.this.finish();

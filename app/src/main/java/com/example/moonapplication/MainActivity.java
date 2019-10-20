@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+
 public class MainActivity extends AppCompatActivity {
 
     ImageView imageView;
@@ -21,8 +24,25 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.i("Main_", "요기 들어왔어용");
 
+        // 현재 날짜
+        long now = System.currentTimeMillis();
+        Date date = new Date(now);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+        String today = sdf.format(date);
+        String[] today_data = today.split("-");
+
         Intent i = new Intent();
-        ComponentName componentName = new ComponentName("com.example.moonapplication", "com.example.moonapplication.MoonService");
+        ComponentName componentName = new ComponentName("com.example.moonapplication", "com.example.moonapplication.MoonDataService");
+        i.putExtra("year", today_data[0]);
+        Log.i("year", today_data[0]);
+
+        i.putExtra("month", today_data[1]);
+        Log.i("month", today_data[1]);
+
+        i.putExtra("day", today_data[2]);
+        Log.i("v", today_data[2]);
+
         i.setComponent(componentName);
         startService(i);
 
