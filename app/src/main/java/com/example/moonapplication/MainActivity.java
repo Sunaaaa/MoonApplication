@@ -74,16 +74,86 @@ public class MainActivity extends AppCompatActivity {
     public void setImgSrc(String lunStr) {
 
         Toast.makeText(getApplicationContext(), lunStr, Toast.LENGTH_SHORT).show();
-//        switch (lunStr){
-//            case "0.1": case "1.1": case "0.4": case "1.4": case "2.4":
-//            case "3.4": case "4.4": case "5.4": case "6.4": case "7.4": case "8.4":
-//            case "9.4":
-//            case "10.4": case "11.4": case "12.4": case "13.4": case "14.4":
-//            case "15.4":
-//            case "16.4": case "17.4": case "18.4": case "19.4": case "20.4": case "21.4": case "22.4":
-//            case "23.4":
-//            case "24.4": case "25.4": case "26.4" : case "26.7": case "27.4": case "28.4":
-//        }
+        switch (lunStr){
+            case "3":
+                imageView.setImageResource(R.drawable.m_3);
+                break;
+            case "4":
+                imageView.setImageResource(R.drawable.m_4);
+                break;
+            case "5":
+                imageView.setImageResource(R.drawable.m_5);
+                break;
+            case "6":
+                imageView.setImageResource(R.drawable.m_6);
+                break;
+            case "7":
+                imageView.setImageResource(R.drawable.m_7);
+                break;
+            case "8":
+                imageView.setImageResource(R.drawable.m_8);
+                break;
+            case "9":
+                imageView.setImageResource(R.drawable.m_9);
+                break;
+            case "10":
+                imageView.setImageResource(R.drawable.m_10);
+                break;
+            case "11":
+                imageView.setImageResource(R.drawable.m_11);
+                break;
+            case "12":
+                imageView.setImageResource(R.drawable.m_12);
+                break;
+            case "13":
+                imageView.setImageResource(R.drawable.m_13);
+                break;
+            case "14":
+                imageView.setImageResource(R.drawable.m_14);
+                break;
+            case "15":
+                imageView.setImageResource(R.drawable.m_15);
+                break;
+            case "16":
+                imageView.setImageResource(R.drawable.m_16);
+                break;
+            case "17":
+                imageView.setImageResource(R.drawable.m_17);
+                break;
+            case "18":
+                imageView.setImageResource(R.drawable.m_18);
+                break;
+            case "19":
+                imageView.setImageResource(R.drawable.m_19);
+                break;
+            case "20":
+                imageView.setImageResource(R.drawable.m_20);
+                break;
+            case "21":
+                imageView.setImageResource(R.drawable.m_21);
+                break;
+            case "22":
+                imageView.setImageResource(R.drawable.m_22);
+                break;
+            case "23":
+                imageView.setImageResource(R.drawable.m_23);
+                break;
+            case "24":
+                imageView.setImageResource(R.drawable.m_24);
+                break;
+            case "25":
+                imageView.setImageResource(R.drawable.m_25);
+                break;
+            case "26":
+                imageView.setImageResource(R.drawable.m_26);
+                break;
+            case "27":
+                imageView.setImageResource(R.drawable.m_27);
+                break;
+            default:
+                imageView.setVisibility(View.GONE);
+
+        }
     }
 
 }
