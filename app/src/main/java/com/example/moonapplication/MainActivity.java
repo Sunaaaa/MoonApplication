@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
     public void setImgSrc(String lunStr) {
 
         Toast.makeText(getApplicationContext(), lunStr, Toast.LENGTH_SHORT).show();
+        imageView.setVisibility(View.VISIBLE);
         switch (lunStr){
             case "3":
                 imageView.setImageResource(R.drawable.m_3);
